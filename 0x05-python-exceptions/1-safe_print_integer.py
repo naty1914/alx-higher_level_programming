@@ -3,6 +3,6 @@ def safe_print_integer(value):
     try:
         if isinstance(value, int):
             print("{}".format(value))
-            return value
+            return True
     except:
-        return 0
+        return False
