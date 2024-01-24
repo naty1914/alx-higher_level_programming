@@ -4,11 +4,9 @@
 
 class Square:
     """A class Square that defines a square."""
-
-    def __init__(self, size=0, position=(0, 0)):
+    def __init__(self, size=0):
         """Initialize a Square object with a given size and position."""
         self.size = size
-        self.position = position
 
     @property
     def size(self):
@@ -25,31 +23,30 @@ class Square:
             raise ValueError("size must be >= 0")
         self.__size = value
 
-    @property
-    def position(self):
-        """Retrieve the position of the square."""
-        return self.__position
-
-    @position.setter
-    def position(self, value):
-        """Set the position of the square."""
-        if not isinstance(value, tuple) or len(value) != 2 or \
-                not all(isinstance(x, int) for x in value) or \
-                not all(x >= 0 for x in value):
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
-
     def area(self):
         """Return the area of the square."""
         return self.__size ** 2
 
-    def my_print(self):
-        """Print the square with '#' character."""
-        if self.__size == 0:
-            print()
-            return
-        else:
-            for x in range(self.__position[1]):
-                print()
-            for x in range(self.__size):
-                print(" " * self.__position[0] + '#' * self.__size)
+    def __eq__(self, other):
+        """Compares two squares for equality based on area."""
+        return self.area() == other.area()
+
+    def __ne__(self, other):
+        """Compares two squares for inequality based on area."""
+        return self.area() != other.area()
+
+    def __gt__(self, other):
+        """Compares if one square is greater than another based on area."""
+        return self.area() > other.area()
+
+    def __ge__(self, other):
+        """Compares if one square is greater than or equal to another."""
+        return self.area() >= other.area()
+
+    def __lt__(self, other):
+        """Compares if one square is less than another based on area."""
+        return self.area() < other.area()
+
+    def __le__(self, other):
+        """Compares if one square is less than or equal to another."""
+        return self.area() <= other.area()
