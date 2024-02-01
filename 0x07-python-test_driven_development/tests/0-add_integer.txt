@@ -1,0 +1,12 @@
+# 0-add_integer.txt
+
+# Import the module dynamically using importlib
+>>> from importlib import import_module
+>>> add_integer_module = import_module('0-add_integer')
+
+# Now use the add_integer function from the module
+>>> add_integer_module.add_integer(2, 3)
+5
+>>> add_integer_module.add_integer(0, 3)
+3
+
