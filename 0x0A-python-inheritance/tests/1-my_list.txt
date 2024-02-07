@@ -1,0 +1,32 @@
+>>> MyList = __import__('1-my_list').MyList
+>>> lst = MyList([3, 1, 2])
+>>> new_list = lst.print_sorted()
+[1, 2, 3]
+>>> isinstance(new_list, list)
+False
+>>> new_list == lst
+False
+>>> lst = MyList()
+>>> isinstance(lst, list)
+True
+>>> isinstance(lst, MyList)
+True
+>>> str(lst)
+'[]'
+>>> lst.append(5)
+>>> lst.append(3)
+>>> str(lst)
+'[5, 3]'
+>>> lst.print_sorted()
+[3, 5]
+
+>>> lst.append(2)
+>>> lst.print_sorted()
+[2, 3, 5]
+
+>>> lst.append(-1)
+>>> lst.print_sorted()
+[-1, 2, 3, 5]
+
+>>> MyList().print_sorted()
+[]
