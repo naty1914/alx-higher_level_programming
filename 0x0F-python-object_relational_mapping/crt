@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+n=$2
+t=$1
+
+for ((i=0;i<=n;i++));do
+    touch "${i}-${t}"
+done
